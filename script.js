@@ -31,7 +31,7 @@
             const email = document.getElementById('email').value;
             const address = document.getElementById('address').value;
             
-            // Update welcome name
+            
             document.getElementById('welcome-name').textContent = name;
             
             alert('Details saved successfully!');
@@ -50,7 +50,129 @@
             }
         }
 
-        // Show welcome section by default
         document.addEventListener('DOMContentLoaded', function() {
-           
+            
         });
+   
+   
+   document.addEventListener("DOMContentLoaded", function () {
+            const quantityInputs = document.querySelectorAll(".quantity-input");
+            const removeButtons = document.querySelectorAll(".remove-btn");
+            const applyCouponBtn = document.getElementById("apply-coupon");
+            const cartSubtotal = document.getElementById("cart-subtotal");
+            const cartDiscount = document.getElementById("cart-discount");
+            const cartTotal = document.getElementById("cart-total");
+
+            
+            quantityInputs.forEach(input => {
+                input.addEventListener("change", updateSubtotal);
+            });
+
+           
+            removeButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    this.closest("tr").remove();
+                    updateSubtotal();
+                });
+            });
+
+            
+            applyCouponBtn.addEventListener("click", function () {
+                let couponCode = document.getElementById("coupon-code").value;
+                let discount = 0;
+
+                if (couponCode === "BEAUTY10") {
+                    discount = 0.1; 
+                }
+
+                let subtotal = calculateSubtotal();
+                let discountAmount = subtotal * discount;
+                let total = subtotal - discountAmount;
+
+                cartDiscount.innerText = `-$${discountAmount.toFixed(2)}`;
+                cartTotal.innerText = `$${total.toFixed(2)}`;
+            });
+
+            
+            function calculateSubtotal() {
+                let subtotal = 0;
+                document.querySelectorAll(".quantity-input").forEach((input, index) => {
+                    let price = parseFloat(document.querySelectorAll(".cart-table td:nth-child(2)")[index].innerText.replace("$", ""));
+                    let quantity = parseInt(input.value);
+                    let itemSubtotal = price * quantity;
+                    document.querySelectorAll(".subtotal")[index].innerText = `$${itemSubtotal.toFixed(2)}`;
+                    subtotal += itemSubtotal;
+                });
+                return subtotal;
+            }
+
+            
+            function updateSubtotal() {
+                let subtotal = calculateSubtotal();
+                cartSubtotal.innerText = `$${subtotal.toFixed(2)}`;
+                cartTotal.innerText = `$${total.toFixed(2)}`;
+                cartDiscount.innerText = "$0.00"; 
+            }
+        });     
+     
+     
+     
+     document.addEventListener("DOMContentLoaded", function () {
+    const quantityInputs = document.querySelectorAll(".quantity-input");
+    const removeButtons = document.querySelectorAll(".remove-btn");
+    const applyCouponBtn = document.getElementById("apply-coupon");
+    const cartSubtotal = document.getElementById("cart-subtotal");
+    const cartDiscount = document.getElementById("cart-discount");
+    const cartTotal = document.getElementById("cart-total");
+
+    
+    quantityInputs.forEach(input => {
+        input.addEventListener("change", updateSubtotal);
+    });
+
+
+    removeButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            this.closest("tr").remove();
+            updateSubtotal();
+        });
+    });
+
+    
+    applyCouponBtn.addEventListener("click", function () {
+        let couponCode = document.getElementById("coupon-code").value;
+        let discount = 0;
+
+        if (couponCode === "BEAUTY10") {
+            discount = 0.1; // 10% discount
+        }
+
+        let subtotal = calculateSubtotal();
+        let discountAmount = subtotal * discount;
+        let total = subtotal - discountAmount;
+
+        cartDiscount.innerText = `-$${discountAmount.toFixed(2)}`;
+        cartTotal.innerText = `$${total.toFixed(2)}`;
+    });
+
+
+    function calculateSubtotal() {
+        let subtotal = 0;
+        document.querySelectorAll(".quantity-input").forEach((input, index) => {
+            let price = parseFloat(document.querySelectorAll(".cart-table td:nth-child(2)")[index].innerText.replace("$", ""));
+            let quantity = parseInt(input.value);
+            let itemSubtotal = price * quantity;
+            document.querySelectorAll(".subtotal")[index].innerText = `$${itemSubtotal.toFixed(2)}`;
+            subtotal += itemSubtotal;
+        });
+        return subtotal;
+    }
+
+    
+    function updateSubtotal() {
+        let subtotal = calculateSubtotal();
+        cartSubtotal.innerText = `$${subtotal.toFixed(2)}`;
+        cartTotal.innerText = `$${total.toFixed(2)}`;
+        cartDiscount.innerText = "$0.00"; 
+    }
+});
