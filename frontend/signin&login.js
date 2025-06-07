@@ -12,48 +12,65 @@ function showSignup() {
     document.getElementById("loginTab").classList.remove("active");
 }
 
-function validateLogin() {
+async function validateLogin() {
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
+
     if (email === "" || password === "") {
         alert("Please fill in all fields");
-        return false;
+        return;
     }
-    alert("Login Successful!");
+
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        alert("Login Successful!");
+        localStorage.setItem("token", data.token);
+        window.location.href = "homepage.html";
+    } else {
+        alert(data.error || "Login failed");
+    }
 }
 
-function validateSignup() {
+async function validateSignup() {
     let email = document.getElementById("signupEmail").value;
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let password = document.getElementById("signupPassword").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
     let terms = document.getElementById("terms").checked;
-    if(email == "") {
-        alert("emailErr", "Please enter your email address");
-    } else {
-        // Regular expression for basic email validation
-        var regex = /^\S+@\S+\.\S+$/;
-        if(regex.test(email) === false) {
-            alert("emailErr should contain '@'", "Please enter a valid email address");
-        } 
-    
-    if (firstName === "" || lastName === "" || password === "" || confirmPassword === "") {
+
+    if (email === "" || firstName === "" || lastName === "" || password === "" || confirmPassword === "") {
         alert("Please fill in all fields");
-        return false;
+        return;
     }
     if (password !== confirmPassword) {
         alert("Passwords do not match");
-        return false;
+        return;
     }
     if (!terms) {
         alert("You must accept the terms and conditions");
-        return false;
+        return;
     }
-    
 
-else{
-alert("Sign Up Successful!");
-}
-}
+    const name = firstName + " " + lastName;
+
+    const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        alert("Signup successful! Please login.");
+        showLogin(); // switch to login
+    } else {
+        alert(data.error || "Signup failed");
+    }
 }
