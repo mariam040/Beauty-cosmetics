@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;      
+    background-color:  #fcf9f9;             
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #EFE9E1;   
+    padding: 20px;
+    position: relative;
+    height: 100vh;
+}
+.sidebar-menu button:hover{
+    background-color: #fed2d1;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-menu li {
+    margin: 20px 0;
+}
+
+.sidebar-menu li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+.sidebar-menu li a:hover {
+    background-color: #f4bcbc;  /* Light pink color on hover */
+    color: white;
+    padding-left: 15px;  /* Adds a slight indent to the hover effect */
+}
+
+
+/* Logout Button */
+.logout {
+    margin-top: auto;
+}
+
+.logout a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+.logout a:hover {
+    background-color: #f4bcbc;
+    color: white;
+    padding-left: 15px;
+}
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* User Section (Table) */
+.User {
+    background-color: #EFE9E1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #f4bcbc;
+}
+
+/* Form for Adding and Editing Products */
+/* Styling for Add Product Form */
+#productForm {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    
+    border: 2px solid #f4bcbc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+   
+    text-align: center;
+
+        width: 80%;  /* Increase width */
+        max-width: 900px;
+        padding: 30px; /* Add more space inside */
+    
+    
+}
+
+#productForm input, #productForm button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#productForm button {
+    background: #ff9999;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+#productForm button:hover {
+    background-color: #e66f6f; 
+}
+.price-container {
+    display: flex;
+    align-items: center;
+}
+
+.price-container input {
+    flex: 1;
+}
+
+.price-container span {
+    background: #ddd;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+/* Product List and Delete Section */
+#productList {
+    margin-top: 20px;
+}
+
+#deleteProductSection {
+    margin-top: 20px;
+}
+
+#productSelectForDelete {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+table,th,td{
+    border:1pxsolidblack; 
+   border-collapse:collapse;
+    }
+    th,td{
+    padding:10px;
+    }
+    
+    table {
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        background: white; /* Optional for visibility */
+        border-collapse: collapse;
+      }
+      #loginOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#loginBox {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#loginBox input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+#loginBox button {
+    background-color: #f4bcbc;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#loginBox button:hover {
+    background-color: #e88b8b;
+}
