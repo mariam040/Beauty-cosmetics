@@ -29,7 +29,7 @@ async function validateLogin() {
 
     const data = await res.json();
     if (res.ok) {
-        alert("Login Successful!");
+        alert("Login Successful! ,go start shopping ");
         localStorage.setItem("token", data.token);
         window.location.href = "homepage.html";
     } else {

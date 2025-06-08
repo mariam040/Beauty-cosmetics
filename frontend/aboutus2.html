@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About Us - Angelina Beauty</title>
+      
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="aboutus2.css" />
+      
+        <!-- Font Awesome 6 (full and latest icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+      </head>
+      
+<body>
+
+  <!-- Header -->
+  
+   <section id="header" class="header">
+        <div class="logo">
+          <a href="homepage.html"><img src="images/Angelina_transparent2.png" alt="Logo" /></a>
+        </div>
+      
+        <nav class="navbar">
+          <a href="homepage.html">Home</a>
+      
+          <div class="dropdown">
+            <a href="shop.html">Shop</a>
+            <div class="dropdown-content">
+              <a href="products-skinCare.html">Facecare</a>
+              <a href="products-body.html">Bodycare</a>
+              <a href="products-makeup.html">Makeup</a>
+              <a href="products-perfume.html">Perfume</a>
+              <a href="shop.html">Shop All</a>
+            </div>
+          </div>
+          
+      
+          <a href="aboutus2.html">About Us</a>
+        </nav>
+         <div class="header-right">
+          <form class="search-box">
+            <input type="text" placeholder="Search product " />
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+      
+          <div class="icons">
+            <a href="shoppingCart.html" class="fa-solid fa-cart-shopping"></a>
+            <a href="sginin&login.html" class="fa-regular fa-user"></a>
+          </div>
+        </div>
+    </section>
+
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Us Section -->
+<section class="aboutus-section">
+    <div class="heading">
+      <h1>Who We Are</h1>
+      <p>Discover the story behind Angelina Beauty</p>
+    </div>
+  
+    <div class="aboutuscontainer">
+      <div class="about-image">
+        <img src ="libre.jpg"  alt="About Us Image" />
+      </div>
+  
+      <div class="about-content">
+        <h2>Empowering You with Beauty</h2>
+        <p>
+          At Angelina Beauty, we believe that beauty is not just a look — it’s confidence,
+          self-love, and power. Our mission is to bring out the best version of you through
+          carefully selected skincare, bodycare, makeup, and fragrances that suit
+          every tone, every skin type, and every personality.
+        </p>
+        <p>
+          Founded with a passion for inclusivity and elegance, Angelina Beauty is more than just
+          an online store — it’s a destination for premium self-care and expression.
+          From our packaging to our product quality, every detail is designed to make you feel
+          seen, celebrated, and radiant.
+        </p>
+        <p><em> Safety. Confidence. Results.</em></p>
+
+
+
+        
+
+        <h2 id="aboutustext">What Makes Us Different?</h2>
+      <ul style="font-size: 1.6rem; color: #333; line-height: 2; ">
+        <li>Inclusive for All — Products for all tones and types.</li>
+        
+      </ul>
+      <p style="margin-top: 2rem;">
+        Whether you're here for your glow-up or a perfect gift, we're here to make you feel
+        beautiful, confident, and unstoppable.
+      </p>
+      <p>Welcome to Angelina Beauty — where your beauty story begins.</p>
+
+      </div>
+
+    </div>
+  </section>
+  
+  </main>
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Shop</h3>
+        <a class="link" href="products-skinCare.html"><i class="fas fa-angle-right"></i>FaceCare</a>
+        <a class="link" href="products-body.html"><i class="fas fa-angle-right"></i>BodyCare</a>
+        <a class="link" href="products-makeup.html"><i class="fas fa-angle-right"></i>Makeup</a>
+        <a class="link" href="products-perfume.html"><i class="fas fa-angle-right"></i>Perfume</a>
+      </div>
+      <div class="box">
+        <h3>About</h3>
+        <a class="link" href="aboutus2.html"><i class="fas fa-angle-right"></i>Who We Are!</a>
+        <a class="link" href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
+      </div>
+      <div class="box">
+        <h3>Contact Info</h3>
+        <a class="link" href="#"><i class="fas fa-phone"></i>+02011223344</a>
+        <a class="link" href="#"><i class="fas fa-envelope"></i>ANGELINABEAUTY@GMAIL.COM</a>
+        <a class="link" href="#"><i class="fas fa-map"></i>CAIRO, EGYPT - NEW CAIRO 26</a>
+      </div>
+      <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>COPYRIGHT © 2024 HOMS. ALL RIGHTS RESERVED</p>
+    </footer>
+  </section>
+  <script>
+    document.querySelector('.dropbtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const menu = document.querySelector('.dropdown-content');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  
+    window.addEventListener('click', function (e) {
+      const dropdown = document.querySelector('.dropdown');
+      if (!dropdown.contains(e.target)) {
+        document.querySelector('.dropdown-content').style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
