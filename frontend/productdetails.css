@@ -107,7 +107,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", "Segoe UI", "Helvetica Neue", sans-serif;
   }
   
   body {
@@ -121,6 +121,7 @@ body {
   /* HEADER */
   .header {
     position: sticky;
+    font-size: 0.5;
     top: 0;
     z-index: 1000;
     background: white;
@@ -129,6 +130,7 @@ body {
     justify-content: space-between;
     padding: 1rem 5%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", "Segoe UI", "Helvetica Neue", sans-serif;
   }
   
   .logo img {
