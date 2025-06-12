@@ -1,0 +1,114 @@
+<html lang="en">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;  /* center horizontally */
+      align-items: center;      /* center vertically */
+      height: 100vh;
+      flex-direction: column;   /* stack children vertically */
+      gap: 10px;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0; /* subtle background */
+    }
+
+    div {
+      width: 300px;
+      text-align: center;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form div {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #004d99;
+    }
+
+    #result {
+      color: red;
+      font-size: 0.9em;
+      margin-left: 4px;
+    }
+  </style>
+
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+    <div>
+      <h2>All Users</h2>
+
+      <% if (users.length> 0) { %>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th colspan="3">Action</th>
+          </tr>
+          <% users.forEach(user=> { %>
+            <tr>
+              <td>
+                <%= user.UserName %>
+              </td>
+              <td>
+                <%= user.Type %>
+              </td>
+              <td>
+                <a href="/admin/user/<%= user.id %>">View More</a>
+              </td>
+              <td>
+                <% if (user.Type==='client' ){ %>
+                  <a href="/admin/toAdmin/<%= user.id %>">Make Admin</a>
+                  <% } else{ %>
+                    <a href="/admin/toClient/<%= user.id %>">Make Client</a>
+                    <% } %>
+              </td>
+              <td>
+                <a href="/admin/delete/<%= user.Image %>/<%= user.id %>">Delete</a>
+              </td>
+            </tr>
+            <% }) %>
+        </table>
+        <% } else { %>
+          <p>There are no users to display...</p>
+          <% } %>
+
+    </div>
+
+</body>
+
+</html>

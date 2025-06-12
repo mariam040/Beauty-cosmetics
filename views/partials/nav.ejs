@@ -1,0 +1,55 @@
+<head>
+  <link rel="stylesheet" href="/css/mystyle.css">
+  <link rel="stylesheet" href="/css/homepage.css">
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Angelina Beauty</title>
+    <link rel="shortcut icon" href="Angelina_transparent2.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="userprofile.css">
+
+</head>
+
+
+
+    <section id="header" class="header">
+    <div class="logo">
+      <a href="#"><img src="/img/Angelina_transparent.png" alt="Logo" /></a>
+    </div>
+  
+    
+<div class='topnav'>
+  <a href='/'>Home</a>
+ 
+
+  <% if(user==="" ) {%>
+    <a href='/user/signup'>Sign Up</a>
+    <a href='/user/login'>Login</a>
+  <% }
+  else { 
+    if(user.Type==="admin" ) { %>
+      <a href='/admin/viewAll'>Admin</a>
+    <% } %>
+    <a href='/user/profile'>Profile</a>
+    <a href='/user/logout'>Logout</a>
+
+    <div class="user">
+      Welcome <%= user.UserName %>
+    </div>
+  <% } %>
+</div>
+
+    <div class="header-right">
+      <form class="search-box">
+        <input type="text" placeholder="Search product here " />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+  
+      <div class="icons">
+        <a href="m.html" class="fa-solid fa-cart-shopping"></a>
+        <a href="/user/profile" class="fa-regular fa-user"></a>
+      </div>
+    </div>
+  </section>
+  
