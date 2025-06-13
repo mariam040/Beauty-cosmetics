@@ -1,109 +1,3 @@
-<!-- <html lang="en">
-
-<head>
-  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-  <script src="/js/ajax-UN.js"></script>
-  <script>
-    function validate() {
-      if (document.getElementById('result').innerHTML.includes('taken'))
-        return false;
-      else
-        return true;
-    }
-  </script>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;  /* center horizontally */
-      align-items: center;      /* center vertically */
-      height: 100vh;
-      flex-direction: column;   /* stack children vertically */
-      gap: 10px;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0; /* subtle background */
-    }
-
-    div {
-      width: 300px;
-      text-align: center;
-    }
-
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    form div {
-      margin-bottom: 12px;
-      text-align: left;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="file"] {
-      width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #004d99;
-    }
-
-    #result {
-      color: red;
-      font-size: 0.9em;
-      margin-left: 4px;
-    }
-  </style>
-</head>
-
-<body>
-  <%- include("./partials/nav.ejs") %>
-
-  <div>
-    <h1>Sign Up</h1>
-  </div>
-
-  <div>
-    <form method="post" enctype="multipart/form-data" onsubmit="return validate()" action="/user/signup">
-      <div>
-        <input type="text" name="un" id="un" placeholder="Username" required>
-        <span id="result"></span>
-      </div>
-      <div>
-        <input type="password" name="pw" placeholder="Password" required>
-      </div>
-      <div>
-        Profile Picture: <input type="file" name="img">
-      </div>
-      <input type="hidden" name="type" value="client">
-      <input type="submit" name="submit" value="Sign Up">
-    </form>
-  </div>
-</body>
-
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,408 +17,121 @@
         return true;
     }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      outline: none;
-      border: none;
-    }
+<style>
+  
+  body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
 
-    html {
-      font-size: 62.5%;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+.container {
+  background: #fff;
+  width: 350px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #fed2d1 0%, #f8dbda 50%, #eee 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      position: relative;
-    }
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #000;
+}
 
-    /* Animated background elements */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(254, 210, 209, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(248, 219, 218, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(254, 210, 209, 0.2) 0%, transparent 50%);
-      z-index: -1;
-      animation: backgroundShift 15s ease-in-out infinite;
-    }
+p {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-    @keyframes backgroundShift {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.1); }
-    }
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: lowercase;
+  background: #fff;
+  color: #000;
+}
 
-    .signup-container {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.1),
-        0 0 60px rgba(254, 210, 209, 0.3);
-      padding: 4rem 3rem;
-      width: 100%;
-      max-width: 450px;
-      position: relative;
-      overflow: hidden;
-      animation: slideUp 0.8s ease-out;
-    }
+input[type="file"] {
+  padding: 6px;
+  font-size: 12px;
+}
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
+small {
+  font-size: 12px;
+  color: #555;
+}
 
-    .signup-container::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(254, 210, 209, 0.1), transparent);
-      animation: shimmer 3s ease-in-out infinite;
-      pointer-events: none;
-    }
+label {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 5px;
+  display: block;
+}
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
 
-    .signup-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
-    }
+button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: lowercase;
+}
 
-    .signup-header h1 {
-      font-size: 3.2rem;
-      color: #333;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #333, #fed2d1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+button:hover {
+  background: #333;
+}
 
-    .signup-header p {
-      font-size: 1.4rem;
-      color: #666;
-      font-weight: 300;
-    }
-
-    .signup-form {
-      position: relative;
-      z-index: 1;
-    }
-
-    .form-group {
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 1.3rem;
-      color: #333;
-      margin-bottom: 0.8rem;
-      font-weight: 500;
-      transform: translateY(0);
-      transition: all 0.3s ease;
-    }
-
-    .input-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      background: #f8f9fa;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    .input-wrapper:focus-within {
-      border-color: #fed2d1;
-      box-shadow: 0 0 20px rgba(254, 210, 209, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .input-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(254, 210, 209, 0.1), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .input-wrapper:focus-within::before {
-      left: 100%;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 1.5rem 2rem;
-      font-size: 1.4rem;
-      background: transparent;
-      color: #333;
-      position: relative;
-      z-index: 2;
-    }
-
-    .form-input::placeholder {
-      color: #999;
-      font-weight: 300;
-    }
-
-    .form-input:focus::placeholder {
-      opacity: 0;
-    }
-
-    .input-icon {
-      position: absolute;
-      right: 2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #fed2d1;
-      font-size: 1.6rem;
-      z-index: 3;
-      transition: all 0.3s ease;
-    }
-
-    .input-wrapper:focus-within .input-icon {
-      color: #333;
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .file-input-wrapper {
-      position: relative;
-      cursor: pointer;
-      border: 2px dashed #fed2d1;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, rgba(254, 210, 209, 0.1), rgba(248, 219, 218, 0.1));
-      transition: all 0.3s ease;
-    }
-
-    .file-input-wrapper:hover {
-      border-color: #333;
-      background: linear-gradient(135deg, rgba(254, 210, 209, 0.2), rgba(248, 219, 218, 0.2));
-      transform: translateY(-2px);
-    }
-
-    .file-input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-    }
-
-    .file-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      color: #333;
-      font-size: 1.3rem;
-      pointer-events: none;
-    }
-
-    .file-icon {
-      font-size: 2.5rem;
-      color: #fed2d1;
-      transition: all 0.3s ease;
-    }
-
-    .file-input-wrapper:hover .file-icon {
-      color: #333;
-      transform: scale(1.1);
-    }
-
-    .result-message {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      color: #e74c3c;
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
-    }
-
-    .result-message.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 1.8rem;
-      background: linear-gradient(135deg, #fed2d1, #f8dbda);
-      color: #333;
-      font-size: 1.6rem;
-      font-weight: 600;
-      border-radius: 12px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(254, 210, 209, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .submit-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(254, 210, 209, 0.5);
-    }
-
-    .submit-btn:hover::before {
-      left: 100%;
-    }
-
-    .submit-btn:active {
-      transform: translateY(-1px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      html {
-        font-size: 55%;
-      }
-      
-      .signup-container {
-        padding: 3rem 2rem;
-        margin: 1rem;
-      }
-      
-      .signup-header h1 {
-        font-size: 2.8rem;
-      }
-    }
-
-    @media (max-width: 450px) {
-      html {
-        font-size: 50%;
-      }
-      
-      .signup-container {
-        padding: 2.5rem 1.5rem;
-      }
-    }
-
-    /* Loading animation for form submission */
-    .loading {
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    .loading .submit-btn::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      margin: auto;
-      border: 2px solid transparent;
-      border-top-color: #333;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-  </style>
+  
+</style>
 </head>
 
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="signup-container">
-    <div class="signup-header">
-      <h1>Sign Up</h1>
-      <p>Join our community today</p>
-    </div>
+ <div class="container">
+  <h2>Sign Up</h2>
+  <p>Join our community today</p>
 
-    <form class="signup-form" method="post" enctype="multipart/form-data" onsubmit="return validate()" action="/user/signup">
-      <div class="form-group">
-        <label for="un">Username</label>
-        <div class="input-wrapper">
-          <input type="text" name="un" id="un" class="form-input" placeholder="Choose a unique username" required>
-          <i class="fas fa-user input-icon"></i>
-        </div>
-        <span id="result" class="result-message"></span>
-      </div>
+  <form action="/signup" method="POST" enctype="multipart/form-data">
+    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="username" required>
+    <div class="error">UserName is taken</div>
 
-      <div class="form-group">
-        <label for="pw">Password</label>
-        <div class="input-wrapper">
-          <input type="password" name="pw" id="pw" class="form-input" placeholder="Create a secure password" required>
-          <i class="fas fa-lock input-icon"></i>
-        </div>
-      </div>
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="password" required>
 
-      <div class="form-group">
-        <label>Profile Picture</label>
-        <div class="file-input-wrapper">
-          <input type="file" name="img" class="file-input" accept="image/*">
-          <div class="file-label">
-            <i class="fas fa-cloud-upload-alt file-icon"></i>
-            <span>Choose profile picture or drag & drop</span>
-            <small>PNG, JPG up to 5MB</small>
-          </div>
-        </div>
-      </div>
+    <label for="profile">Profile Picture</label>
+    <input type="file" name="img">
+    <small>Choose profile picture or drag & drop PNG, JPG up to 5MB</small>
 
-      <input type="hidden" name="type" value="client">
-      <button type="submit" name="submit" class="submit-btn">
-        Create My Account
-      </button>
-    </form>
-  </div>
+    <button type="submit">create my account</button>
+  </form>
+</div>
+
 
   <script>
     // Enhanced file upload feedback
