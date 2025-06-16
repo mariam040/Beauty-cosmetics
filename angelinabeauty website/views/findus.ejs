@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="/css/style.css">
+   <script src="/js/AJAXforSearch.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Find Us</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .find-us-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .find-us-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .contact-map {
+      margin-bottom: 20px;
+    }
+
+    .contact-map p {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .info-section {
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .info-section strong {
+      display: inline-block;
+      width: 120px;
+    }
+  </style>
+</head>
+<body>
+ <!-- Header -->
+  <%- include('partials/header') %>
+  <div class="find-us-container">
+    <h1>Find Us</h1>
+
+    <div class="contact-map">
+      <p>Find Us on the Map</p>
+      <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.463330290795!2d31.473185775394356!3d30.049103874906926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458232ef0c577cd%3A0x7cbea7811e8efcc!2sO1%20Mall!5e0!3m2!1sen!2seg!4v1718533655700!5m2!1sen!2seg"
+  width="100%" height="300" style="border:0; border-radius:10px;"
+  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+    </div>
+
+    <div class="info-section">
+      <p><strong>Location:</strong> O1 Mall, New Cairo, Egypt</p>
+      <p><strong>Working Hours:</strong></p>
+      <ul>
+        <li><strong>Monday – Thursday:</strong> 10:00 AM – 10:00 PM</li>
+        <li><strong>Friday – Saturday:</strong> 12:00 PM – 11:00 PM</li>
+        <li><strong>Sunday:</strong> Closed</li>
+      </ul>
+      <p><strong>Nearby Landmarks:</strong> Beside cloudenine, near Waterway.</p>
+    </div>
+
+  </div>
+  <!-- Footer -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>

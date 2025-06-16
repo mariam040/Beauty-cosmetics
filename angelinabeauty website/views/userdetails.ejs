@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - User Details</title>
+  <link rel="stylesheet" href="/css/Adminn.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="/Admin">Add Product</a></li>
+      <li><a href="/Admin">Edit Product</a></li>
+      <li><a href="/Admin">Delete Product</a></li>
+      <li><a href="/userdetails">User Details</a></li>
+    </ul>
+    <div class="logout">
+      <a href="/homepage">HomePage</a>
+    </div>
+  </aside>
+
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="check_in">
+      <h2>Customer Orders</h2>
+      <table class="user_details">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Mobile</th>
+            <th>Payment Method</th>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Address</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(order => { %>
+            <tr>
+              <td><%= order.fullname %></td>
+              <td><%= order.phone %></td>
+              <td><%= order.paymentMethod %></td>
+              <td>
+  <ul style="list-style: none; padding-left: 0;">
+    <% order.cart.forEach(item => { %>
+      <li><%= item.name %> x <%= item.quantity %></li>
+    <% }) %>
+  </ul>
+</td>
+
+              <td><%= order.createdAt.toLocaleDateString() %></td>
+              <td><%= order.address %>, <%= order.city %></td>
+              <td>$<%= order.total.toFixed(2) %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

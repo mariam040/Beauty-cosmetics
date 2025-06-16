@@ -1,0 +1,165 @@
+/* === Unified Dashboard CSS === */
+/* Shared Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;      
+  background-color: #fcf9f9;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #EFE9E1;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-menu li {
+  margin: 20px 0;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #f4bcbc;
+  color: white;
+  padding-left: 15px;
+}
+
+/* Logout */
+.logout {
+  margin-top: auto;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logout a:hover {
+  background-color: #f4bcbc;
+  color: white;
+  padding-left: 15px;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Admin Product Section */
+.User, .check_in {
+  background-color: #EFE9E1;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table, .user_details {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td, .user_details th, .user_details td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th, .user_details thead th {
+  background-color: #f4bcbc;
+}
+
+.user_details tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Product Form */
+#productForm {
+  position: relative;
+  margin: 40px auto;
+  top: auto;
+  left: auto;
+  transform: none;
+  background: white;
+  border: 2px solid #f4bcbc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+
+#productForm input, #productForm button, #productForm select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#productForm button {
+  background: #ff9999;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#productForm button:hover {
+  background-color: #e66f6f;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+}
+
+.price-container input {
+  flex: 1;
+}
+
+.price-container span {
+  background: #ddd;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}

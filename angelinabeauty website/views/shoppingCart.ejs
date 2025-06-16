@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart | ANGELINA</title>
+  <link rel="shortcut icon" href="/images/Angelina_transparent2.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap" />
+  <link rel="stylesheet" href="/css/stylee.css">
+</head>
+<body>
+
+<section id="header" class="header">
+  <div class="logo">
+    <a href="/"><img src="/images/Angelina_transparent2.png" alt="Logo" /></a>
+  </div>
+
+  <nav class="navbar">
+    <a href="/homepage">Home</a>
+    <div class="dropdown">
+      <a href="/shop" class="dropbtn">Shop</a>
+      <div class="dropdown-content">
+        <a href="/facecare">Facecare</a>
+        <a href="/bodycare">Bodycare</a>
+        <a href="/makeup">Makeup</a>
+        <a href="/Perfume">Perfume</a>
+        <a href="/shop">Shop All</a>
+      </div>
+    </div>
+    <a href="/aboutus">About Us</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="icons">
+      <a href="/login" class="fa-regular fa-user"></a>
+    </div>
+  </div>
+</section>
+
+<div class="cart-container">
+  <h2>Shopping Cart</h2>
+
+  <% if (cartItems.length === 0) { %>
+    <p>Your cart is empty.</p>
+  <% } else { %>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cartItems.forEach(item => { %>
+          <tr>
+            <td><img src="/images/<%= item.image %>" width="50" alt="product"></td>
+            <td><%= item.name %></td>
+            <td>
+              <input type="number" value="<%= item.quantity %>" min="1" onchange="updateQuantity('<%= item._id %>', this.value)">
+            </td>
+            <td>$<%= item.price %></td>
+            <td>$<%= (item.price * item.quantity).toFixed(2) %></td>
+            <td>
+              <form action="/cart/remove/<%= item._id %>" method="POST">
+                <button type="submit">Remove</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <table class="summary-table">
+      <tfoot>
+       <tr>
+  <td colspan="4"><strong>Subtotal</strong></td>
+  <td colspan="2">$<%= Number(subtotal).toFixed(2) %></td>
+</tr>
+<tr>
+  <td colspan="4"><strong>Discount</strong></td>
+  <td colspan="2">$<%= Number(discount).toFixed(2) %></td>
+</tr>
+<tr>
+  <td colspan="4"><strong>Shipping</strong></td>
+  <td colspan="2">$<%= Number(shipping).toFixed(2) %></td>
+</tr>
+<tr>
+  <td colspan="4"><strong>Total</strong></td>
+  <td colspan="2">$<%= Number(total).toFixed(2) %></td>
+</tr>
+
+      </tfoot>
+    </table>
+
+    <a href="/checkout"><button id="checkout-btn">PROCEED TO CHECKOUT</button></a>
+   <a href="/shop" id="continue" >Continue Shopping </a>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+
+<script src="/js/script.js"></script>
+<script>
+  function updateQuantity(productId, newQty) {
+    fetch(`/cart/update/${productId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ quantity: newQty })
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to update');
+      location.reload();
+    })
+    .catch(err => alert(err.message));
+  }
+</script>
+
+</body>
+</html>

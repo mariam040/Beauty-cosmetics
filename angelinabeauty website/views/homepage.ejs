@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Website HTML</title>
+    <link rel="stylesheet" href="/css/homepage.css"/>
+    <link rel="stylesheet" href="/css/chatbot.css"/>
+    <link rel="shortcut icon" href="/images/Angelina_transparent2.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap"/>
+</head>
+<body>
+<section id="header" class="header">
+  <div class="logo">
+    <a href="/homepage"><img src="/images/Angelina_transparent2.png" alt="Logo" /></a>
+  </div>
+
+  <nav class="navbar">
+    <a href="/homepage">Home</a>
+    <div class="dropdown">
+      <a href="/shop">Shop</a>
+       <div class="dropdown-content">
+          <a href="/facecare">Facecare</a>
+          <a href="/bodycare">Bodycare</a>
+          <a href="/makeup">Makeup</a>
+          <a href="/Perfume">Perfume</a>
+          <a href="/shop">Shop All</a>
+        </div>
+    </div>
+    <a href="/aboutus">About Us</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search product..." />
+      <button id="searchBtn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="icons">
+      <a href="/shoppingCart" class="fa-solid fa-cart-shopping"></a>
+      <a href="/login" class="fa-regular fa-user"></a>
+    </div>
+  </div>
+</section>
+
+<section class="home" id="home">
+  <div class="slide active">
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="/images/SANA x YSLBEAUTY for YSL LOVESHINE LIPSTICK.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <span>Angelina Beauty</span>
+      <h3>Welcome to Angelina Beauty<br> where self-care meets beauty.</h3>
+      <a href="/shop" class="btn">Shop Now</a>
+    </div>
+  </div>
+  <div class="slide">
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="/images/WhatsApp Video 2025-06-04 at 02.00.24_b449ce8b.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <span>Angelina Beauty</span>
+      <h3>Welcome to Angelina Beauty<br> where self-care meets beauty.</h3>
+      <a href="/shop" class="btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="top">TOP CATEGORIES</h2>
+  <section class="category">
+    <div class="box-container">
+      <a href="/facecare" class="box">
+        <img src="/images/1335654-200.png">
+        <h3>Facecare</h3>
+      </a>
+      <a href="/bodycare" class="box">
+        <img src="/images/2902281-200.png">
+        <h3>Bodycare</h3>
+      </a>
+      <a href="/makeup" class="box">
+        <img src="/images/755967.png">
+        <h3>Makeup</h3>
+      </a>
+      <a href="/Perfume" class="box">
+        <img src="/images/images.png">
+        <h3>Perfume</h3>
+      </a>
+    </div>
+  </section>
+</section>
+
+<div class="product-items" id="productItems">
+  <section class="slider-section">
+    <h2 class="top">BEST SELLER</h2>
+    <div class="slider">
+      <div class="slider-track">
+        <% products.forEach(p => { %>
+          <div class="product">
+            <div class="product-content">
+              <div class="product-img">
+                <img src="/images/<%= p.image %>" alt="product image">
+              </div>
+              <div class="product-btns">
+                <form action="/cart/add/<%= p._id %>" method="POST">
+                  <button type="submit" class="btn-cart">add to cart
+                    <span><i class="fas fa-plus"></i></span>
+                  </button>
+                </form>
+               
+              </div>
+            </div>
+            <div class="product-info">
+              <a class="product-name" href="/product/<%= p._id %>"><%= p.name %></a>
+              <p class="product-price">$ <%= p.price.toFixed(2) %></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="services">
+  <div class="services-track">
+    <% const services = [
+      { icon: 'free.png', title: 'fast delivery', desc: 'save and fast delivery' },
+      { icon: 'pngwing.com.png', title: 'secure payments', desc: 'more secure and privacy' },
+      { icon: 'support.png', title: '24/7 support', desc: 'you can contact us anytime' }
+    ];
+    services.concat(services).forEach(s => { %>
+      <div class="box">
+        <img src="/images/<%= s.icon %>" alt="">
+        <h3><%= s.title %></h3>
+        <p><%= s.desc %></p>
+      </div>
+    <% }); %>
+  </div>
+</section>
+<button id="openChatBtn" class="open-chat-btn">Chat with us</button>
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-header">
+        <h3>Chatbot</h3>
+        <button id="closeChatBtn" class="close-chat-btn">X</button>
+      </div>
+      <div class="chat-window" id="chatWindow"></div>
+      <form id="chatForm">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Type a message..."
+          required
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+<%- include('partials/footer') %>
+<script src="/js/homepage.js" src="/js/cart.js"></script>
+<script src="/js/AJAXforSearch.js" defer></script>
+</body>
+</html>

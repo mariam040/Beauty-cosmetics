@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Page background */
+body {
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Container */
+.auth-container {
+  width: 100%;
+  max-width: 450px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px;
+  text-align: center;
+}
+
+/* Headers */
+.auth-container h2 {
+  font-size: 28px;
+  color: #000;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fafafa;
+  transition: border 0.3s;
+}
+
+.auth-container input:focus {
+  border-color: #fed2d1;
+  outline: none;
+}
+
+/* Buttons */
+.auth-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: #fed2d1;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Switch Links */
+.auth-container .switch {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-container .switch a {
+  color: #fed2d1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-container .switch a:hover {
+  text-decoration: underline;
+}
+.toggle-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: black;
+}
+
+.toggle-link a {
+  color:black;
+  text-decoration: underline;
+  font-weight: 300;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-link a:hover {
+  color: #fed2d1;
+}
+button[type="submit"] {
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #fed2d1;
+  color: black;
+}
+
+button[type="submit"]:hover {
+  background-color: #f9c6c0;
+  color: black;
+}
+
+button[type="submit"]:focus,
+button[type="submit"]:active {
+  background-color: #fed2d1;
+  color: black;
+  outline: none;
+}

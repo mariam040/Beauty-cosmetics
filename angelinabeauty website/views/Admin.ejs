@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/Adminn.css">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="#" onclick="showAddProductForm()">Add Product</a></li>
+      <li><a href="#" onclick="showEditProductForm()">Edit Product</a></li>
+      <li><a href="#" onclick="showDeleteProductForm()">Delete Product</a></li>
+      <li><a href="/userdetails">User Details</a></li>
+    </ul>
+   <div class="logout">
+      <a href="/homepage" onclick="">Homepage</a>
+    </div>
+  </aside>
+
+  <div id="welcomeMessage" style="text-align:center; padding: 50px;">
+    <h2>Welcome back, Admin 👋</h2>
+    <p>Choose what you want to do.</p>
+  </div>
+
+  <!-- Product Form -->
+  <div id="productForm" style="display: none;">
+    <h3 id="formTitle">Add Product</h3>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="file" id="productImage" name="image" accept="image/*">
+    
+
+    <label for="category">Category</label>
+    <select id="category">
+      <option value="">Select category</option>
+      <option value="body">Body</option>
+      <option value="face">Face</option>
+      <option value="perfume">Perfume</option>
+      <option value="makeup">Makeup</option>
+    </select>
+
+    <input type="number" id="quantity" placeholder="Quantity" min="1">
+    <div class="price-container">
+      <input type="number" id="price" placeholder="Price" min="0">
+      <span>$</span>
+    </div>
+    <input type="text" id="description" placeholder="Enter product description">
+
+    <button onclick="saveProduct()">Save</button>
+    <button onclick="hideForm()">Cancel</button>
+    <span id="successMessage" class="success"></span>
+  </div>
+
+  <!-- Product List -->
+  <div id="productTableSection" style="display: none;">
+    <h3>Product List</h3>
+    <table id="productTable">
+      
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Image</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+          
+
+        </tr>
+      </thead>
+      <tbody id="productItems">
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edit Product Section -->
+  <div id="editProductSection" style="display: none;">
+    <button onclick="loadProductForEdit()"></button>
+  </div>
+
+  <!-- Delete Product Section -->
+  <div id="deleteProductSection" style="display: none;">
+    <button onclick="deleteSelectedProduct()"></button>
+  </div>
+
+ 
+  <!-- JavaScript -->
+  <script src="/js/Admin.js"></script>
+</body>
+</html>
+

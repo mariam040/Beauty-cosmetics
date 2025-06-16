@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <script src="/js/AJAXforSearch.js" defer></script>
+  <link rel="stylesheet" href="/css/checkout2.css"/>
+  <link rel="shortcut icon" href="/images/Angelina_transparent2.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"/>
+</head>
+<body>
+  <!-- Header -->
+    <%- include('partials/header') %>
+
+
+  <!-- Main -->
+<main class="checkout-wrapper" style="margin-top: 80px;">
+  <section class="shipping-form">
+    <h2>Shipping Information</h2>
+    <form id="checkout-form" method="POST" action="/checkout">
+      
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="city">City</label>
+      <select id="city" name="city" required>
+        <option value="">Select City</option>
+        <option value="cairo">Cairo</option>
+        <option value="giza">Giza</option>
+      </select>
+
+      <label for="area">Area</label>
+      <input type="text" id="area" name="area" required />
+
+      <label for="address">Street Address</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="floor">Floor (Optional)</label>
+      <input type="number" id="floor" name="floor" min="0" />
+
+      <label for="apartment">Apartment (Optional)</label>
+      <input type="number" id="apartment" name="apartment" min="0" />
+
+      <label for="addressName">Address Name (Optional)</label>
+      <input type="text" id="addressName" name="addressName" />
+
+      <label for="paymentMethod">Payment Method</label>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="">Select Payment Method</option>
+        <option value="cash">Cash</option>
+      </select>
+
+      <input type="hidden" name="cart" id="cartField" />
+      <input type="hidden" name="total" id="totalField" />
+
+      <button type="submit">Submit Order</button>
+    </form>
+    <section class="shipping-form">
+  <h2>Shipping Information</h2>
+  <form id="checkout-form" method="POST" action="/checkout">
+
+    
+  </form>
+
+  <div class="checkout-summary">
+    <h3>Order Summary</h3>
+    <p>Subtotal: <strong><%= subtotal %> EGP</strong></p>
+    <p>Shipping: <strong><%= shipping %> EGP</strong></p>
+    <p>Total: <strong style="color: #d14d72;"><%= total %> EGP</strong></p>
+  </div>
+</section>
+
+  </section>
+</main>
+
+  <!-- Footer -->
+     <%- include('partials/footer') %>
+
+  <!-- JS -->
+  <script src="/js/checkout2.js"></script>
+  <script>
+ 
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartField = document.getElementById('cartField');
+    const totalField = document.getElementById('totalField');
+
+    let subtotal = 0;
+    cartItems.forEach(item => {
+      subtotal += item.price * item.quantity;
+    });
+
+    const shipping = 50;
+    const total = subtotal + shipping;
+
+    cartField.value = JSON.stringify(cartItems); // ✅ correct value
+    totalField.value = total;                    // ✅ correct value
+  });
+</script>
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Products</title>
+  <link rel="stylesheet" type="text/css" href="/css/productdetails.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <script src="/js/AJAXforSearch.js" defer></script>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<section class="product-container">
+  <div class="product-image">
+    <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+  </div>
+
+  <div class="product-details">
+    <p><a href="/">Home</a> / <%= product.category.charAt(0).toUpperCase() + product.category.slice(1) %></p>
+
+    <h1><%= product.name %></h1>
+    <h2>$<%= product.price.toFixed(2) %></h2>
+
+    <p>This product exists in one size.</p>
+    <p><%= product.quantity %> mL</p>
+
+   <% if (session.user) { %>
+  <form action="/cart/add/<%= product._id %>" method="POST">
+    <input type="hidden" name="productId" value="<%= product._id %>">
+    <input type="number" name="quantity" value="1" min="1" max="50" />
+    <button type="submit">Add To Cart</button>
+  </form>
+<% } else { %>
+  <a href="/auth">
+    <button type="button">Login to Add to Cart</button>
+  </a>
+<% } %>
+
+    <h3>Description</h3>
+    <p><%= product.description %></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>
