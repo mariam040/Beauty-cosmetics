@@ -521,6 +521,27 @@ padding: 1rem 0;
 }
 
 
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #444;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #ffb6c1;
+  color: white;
+  font-weight: bold;
+  border-color: #ffb6c1;
+}
 
 
 

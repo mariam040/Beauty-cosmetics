@@ -67,6 +67,22 @@
                 </div>
                 <% }) %>
             </div>
+            <div class="pagination">
+  <% if (currentPage > 1) { %>
+    <a href="/shop?page=<%= currentPage - 1 %>">« Prev</a>
+  <% } %>
+
+  <% for (let i = 1; i <= totalPages; i++) { %>
+    <a href="/shop?page=<%= i %>" class="<%= i === currentPage ? 'active' : '' %>">
+      <%= i %>
+    </a>
+  <% } %>
+
+  <% if (currentPage < totalPages) { %>
+    <a href="/shop?page=<%= currentPage + 1 %>">Next »</a>
+  <% } %>
+</div>
+
         </div>
     </div>
 

@@ -17,9 +17,6 @@
     "express": "^5.1.0",
     "express-fileupload": "^1.5.1",
     "express-session": "^1.18.1",
-    "i18next": "^25.2.1",
-    "i18next-fs-backend": "^2.6.0",
-    "i18next-http-middleware": "^3.7.4",
     "mongoose": "^8.15.1",
     "multer": "^2.0.1"
   }

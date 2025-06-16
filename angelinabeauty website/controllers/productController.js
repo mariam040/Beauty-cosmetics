@@ -58,13 +58,25 @@ const addProduct = async (req, res) => {
 // Show the shop page
 const renderShopPage = async (req, res) => {
   try {
-    const products = await Product.find();
-    res.render('shop', { products });
+    const page = parseInt(req.query.page) || 1;
+    const limit = 6;
+    const skip = (page - 1) * limit;
+
+    const products = await Product.find().skip(skip).limit(limit);
+    const total = await Product.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    res.render('shop', {
+      products,
+      currentPage: page,
+      totalPages
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send('An error occurred while loading the page.');
   }
 };
+
 
 exports.renderHomepage = async (req, res) => {
   try {
